@@ -16,6 +16,7 @@ return new class extends Migration
             $table->id();
             $table->string('book_name');
             $table->string('author');
+            $table->string('book_image_path');
 
             // function built in laravel untuk waktu pembuatan database
             $table->timestamps();

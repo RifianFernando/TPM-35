@@ -73,13 +73,30 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($list_book as $book)
+                @forelse ($list_book as $book)
                     <tr>
                         <th scope="row">{{ $book->id }}</th>
+                        <td>
+                            <img src="{{ asset('storage/' . $book->book_image_path) }}" style="width: 20%;"
+                                alt="">
+                        </td>
                         <td>{{ $book->book_name }}</td>
                         <td>{{ $book->author }}</td>
+                        <th>
+                            <form action="/delete-book/{{ $book->id }}" method="post">
+                                @csrf
+                                <button type="submit" class="btn btn-danger">Delete
+                                </button>
+                            </form>
+                        </th>
+                        <th>
+                            <a type="button" class="btn btn-warning"
+                                href="/update-book-page/{{ $book->id }}">Update</a>
+                        </th>
                     </tr>
-                @endforeach
+                @empty
+                    <p>Maaf buku tidak ada</p>
+                @endforelse
             </tbody>
         </table>
     </div>

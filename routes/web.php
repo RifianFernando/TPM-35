@@ -39,8 +39,21 @@ Route::get('/home', [HomeController::class, 'home']);
 //     return view('page_jual_beli.beli_page');
 // });
 
+// create book //
 // Page khusus get page create book
 Route::get('/create-book', [BookController::class, 'redirectToCreateBookPage']);
 
 // page khusus post data create book
 Route::post('/post-create-book', [BookController::class, 'createBook']);
+
+// update //
+// kita pasing id untuk page update agar si aplikasi tau book apa yang ingin kita update
+Route::get('/update-book-page/{id}', [BookController::class, 'updateBookPage']);
+
+// page khusus update data dari table book
+Route::post('/update-book/{id1}', [BookController::class, 'updateBook']);
+
+
+// delete
+// kita pasing id untuk delete agar si aplikasi tau book apa yang ingin kita delete dari primary key
+Route::post('/delete-book/{id}', [BookController::class, 'deleteBook']);

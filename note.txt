@@ -21,3 +21,18 @@ https://laravel.com/docs/10.x/eloquent#generating-model-classes
 1. Buat database untuk laravel: create migration sama model cara langsung adalah
 php artisan make:model NamaModel -m -c
 
+
+pertemuan 3:
+cara image di backend bekerja adalah:
+1. image gk akan di store ke database tapi di store ke folder storage
+2. di database akan di store path dari image tersebut
+
+referensi:
+https://laravel.com/docs/10.x/filesystem#file-uploads
+
+referensi validation rules jenisnya buat di validate controller misal
+mau validasi itu string atau bukan dll:
+https://laravel.com/docs/10.x/validation#available-validation-rules
+
+https://laravel.com/docs/10.x/validation#introduction
+

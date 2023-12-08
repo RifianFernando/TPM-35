@@ -56,40 +56,17 @@
         </div>
     </nav>
 
-    {{-- nampilin semua error --}}
-    {{-- @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif --}}
-    <form method="POST" action="/post-create-book" enctype="multipart/form-data">
+    <form method="POST" action="/update-book/{{ $book->id }}">
         @csrf
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Book Name</label>
-            <input type="text" name="book_name_input" class="form-control" id="exampleInputEmail1"
-                aria-describedby="emailHelp">
-            @error('book_name_input')
-                <div class="alert alert-danger">{{ $message }}</div>
-            @enderror
+            <label for="exampleInputEmail1" class="form-label">Update Book Name</label>
+            <input type="text" name="book_name_input" value="{{ $book->book_name }}" class="form-control"
+                id="exampleInputEmail1" aria-describedby="emailHelp">
         </div>
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Book Image</label>
-            <input type="file" name="book_image_input" class="form-control" id="exampleInputEmail1"
-                aria-describedby="emailHelp">
-            @error('book_image_input')
-                <div class="alert alert-danger">{{ $message }}</div>
-            @enderror
-        </div>
-        <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Author</label>
-            <input type="text" name="author_input" class="form-control" id="exampleInputPassword1">
-            @error('author_input')
-                <div class="alert alert-danger">{{ $message }}</div>
-            @enderror
+            <label for="exampleInputPassword1" class="form-label">Update Author</label>
+            <input type="text" name="author_input" value="{{ $book->author }}" class="form-control"
+                id="exampleInputPassword1">
         </div>
         <button type="submit" class="btn btn-primary">Create</button>
     </form>
