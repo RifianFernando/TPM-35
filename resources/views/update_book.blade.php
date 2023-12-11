@@ -56,19 +56,32 @@
         </div>
     </nav>
 
-    <form method="POST" action="/update-book/{{ $book->id }}">
+    <form method="POST" action="/update-book/{{ $book->id }}" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Update Book Name</label>
-            <input type="text" name="book_name_input" value="{{ $book->book_name }}" class="form-control"
-                id="exampleInputEmail1" aria-describedby="emailHelp">
+            <label for="exampleInputEmail1" class="form-label">Book Name</label>
+            <input type="text" name="book_name_input" class="form-control" id="exampleInputEmail1"
+                aria-describedby="emailHelp" value="{{ $book->book_name }}">
+            @error('book_name_input')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
         <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Update Author</label>
-            <input type="text" name="author_input" value="{{ $book->author }}" class="form-control"
-                id="exampleInputPassword1">
+            <label for="exampleInputEmail1" class="form-label">Book Image</label>
+            <input type="file" name="book_image_input" class="form-control" id="exampleInputEmail1"
+                aria-describedby="emailHelp"  value="{{ $book->book_image_path }}">
+            @error('book_image_input')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
-        <button type="submit" class="btn btn-primary">Create</button>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Author</label>
+            <input type="text" name="author_input" class="form-control" id="exampleInputPassword1"  value="{{ $book->author }}">
+            @error('author_input')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+        </div>
+        <button type="submit" class="btn btn-primary">Update Book</button>
     </form>
 
 

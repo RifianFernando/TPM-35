@@ -68,8 +68,11 @@
             <thead>
                 <tr>
                     <th scope="col">id</th>
+                    <th scope="col">book image</th>
                     <th scope="col">book name</th>
-                    <th scope="col">author</th>
+                    <th scope="col">author name</th>
+                    <th scope="col">delete</th>
+                    <th scope="col">update</th>
                 </tr>
             </thead>
             <tbody>
@@ -81,7 +84,7 @@
                                 alt="">
                         </td>
                         <td>{{ $book->book_name }}</td>
-                        <td>{{ $book->author }}</td>
+                        <td>{{ $book->author->author_name }}</td>
                         <th>
                             <form action="/delete-book/{{ $book->id }}" method="post">
                                 @csrf

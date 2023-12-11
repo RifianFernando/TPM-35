@@ -86,7 +86,13 @@
         </div>
         <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Author</label>
-            <input type="text" name="author_input" class="form-control" id="exampleInputPassword1">
+            <select name="author_input" id="exampleInputPassword1">
+                @forelse ($authors as $author)
+                    <option value="{{ $author->id }}">{{ $author->author_name }}</option>
+                @empty
+                    <option value="">Empty</option>
+                @endforelse
+            </select>
             @error('author_input')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror

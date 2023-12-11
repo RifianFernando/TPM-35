@@ -50,7 +50,7 @@ Route::post('/post-create-book', [BookController::class, 'createBook']);
 // kita pasing id untuk page update agar si aplikasi tau book apa yang ingin kita update
 Route::get('/update-book-page/{id}', [BookController::class, 'updateBookPage']);
 
-// page khusus update data dari table book
+// data yang bakal di post khusus update data dari table book
 Route::post('/update-book/{id1}', [BookController::class, 'updateBook']);
 
 

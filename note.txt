@@ -34,5 +34,14 @@ referensi validation rules jenisnya buat di validate controller misal
 mau validasi itu string atau bukan dll:
 https://laravel.com/docs/10.x/validation#available-validation-rules
 
-https://laravel.com/docs/10.x/validation#introduction
+https://laravel.com/docs/10.x/validation#
+
+
+Pertemuan 4:
+Syarat primary key:
+1. Primary key itu pasti ada di semua table Kecuali join table
+2. primary key itu harus unique
+
+Syarat foreign key:
+1. Pasti datanya ngerepresentasiin dari table primary key yang lain
 

@@ -11,15 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('book', function (Blueprint $table) {
-            // ini penting buat bikin primary key
+        Schema::create('authors', function (Blueprint $table) {
             $table->id();
-            $table->string('book_name');
-            // foreign key dari authors
-            $table->foreignId('author_id')->constrained();
-            $table->string('book_image_path');
-
-            // function built in laravel untuk waktu pembuatan database
+            $table->string('author_name');
+            $table->string('tempat_lahir');
             $table->timestamps();
         });
     }
@@ -29,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('authors');
     }
 };
