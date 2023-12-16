@@ -69,14 +69,21 @@
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Book Image</label>
             <input type="file" name="book_image_input" class="form-control" id="exampleInputEmail1"
-                aria-describedby="emailHelp"  value="{{ $book->book_image_path }}">
+                aria-describedby="emailHelp" value="{{ $book->book_image_path }}">
             @error('book_image_input')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
         </div>
         <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Author</label>
-            <input type="text" name="author_input" class="form-control" id="exampleInputPassword1"  value="{{ $book->author }}">
+            <select name="author_input" id="exampleInputPassword1">
+                @forelse ($authors as $author)
+                    <option value="{{ $author->id }}" @if ($author->id == $book->author_id) selected @endif>
+                        {{ $author->author_name }}</option>
+                @empty
+                    <option value="">Empty</option>
+                @endforelse
+            </select>
             @error('author_input')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
