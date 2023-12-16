@@ -11,7 +11,11 @@
 </head>
 
 <body>
-
+    @if (session('status'))
+        <div class="alert alert-success">
+            {{ session('status') }}
+        </div>
+    @endif
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Navbar</a>
@@ -60,6 +64,12 @@
         {{-- <img src="../../public/img/House-ServerInfo.jpg" alt=""> --}}
         <p>Bila ingin menambah book bisa click button dibawah ini</p>
         <a href="/create-book" class="btn btn-dark">Create Button</a>
+        <form action="{{ route('SendMail') }}" method="post">
+            @csrf
+            <button class="btn btn-dark">
+                Send Email Button Button
+            </button>
+        </form>
     </div>
 
     <div>

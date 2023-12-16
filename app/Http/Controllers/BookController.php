@@ -38,7 +38,7 @@ class BookController extends Controller
         $book->book_image_path = 'image_book/' . $fileName;
         $book->save();
 
-        return redirect('/home');
+        return redirect(route('rumah'));
     }
 
     public function updateBookPage($id)
@@ -76,7 +76,7 @@ class BookController extends Controller
         $book->book_image_path = 'image_book/' . $fileName;
         $book->save();
 
-        return redirect('/home');
+        return redirect(route('rumah'));
     }
 
     public function deleteBook($id)
@@ -87,6 +87,6 @@ class BookController extends Controller
         // cara dua
         Book::destroy($id);
 
-        return redirect('/home');
+        return redirect(route('rumah'));
     }
 }

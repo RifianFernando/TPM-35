@@ -45,3 +45,14 @@ Syarat primary key:
 Syarat foreign key:
 1. Pasti datanya ngerepresentasiin dari table primary key yang lain
 
+Pertemuan 5:
+
+Step installasi laravel breeze for authentication:
+composer require laravel/breeze --dev
+
+php artisan breeze:install
+
+php artisan migrate
+npm install
+npm run dev
+
